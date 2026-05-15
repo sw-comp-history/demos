@@ -220,10 +220,23 @@
 
     .category {
       margin-top: 20px;
+      width: min(840px, 78%);
     }
 
     .category:first-of-type {
       margin-top: 0;
+    }
+
+    .category--right {
+      margin-left: auto;
+    }
+
+    .category--left {
+      margin-right: auto;
+    }
+
+    .category--right .category-title {
+      text-align: right;
     }
 
     .category-title {
@@ -237,8 +250,16 @@
 
     .demo-grid {
       display: grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(260px, 360px));
       gap: 16px;
+    }
+
+    .category--right .demo-grid {
+      justify-content: end;
+    }
+
+    .category--left .demo-grid {
+      justify-content: start;
     }
 
     .demo-card,
@@ -384,6 +405,19 @@
         min-height: auto;
       }
 
+      .category {
+        width: 100%;
+      }
+
+      .category--right .category-title {
+        text-align: left;
+      }
+
+      .category--right .demo-grid,
+      .category--left .demo-grid {
+        justify-content: stretch;
+      }
+
       .hero-panel {
         min-height: 300px;
       }
@@ -491,7 +525,7 @@ READY.
         <p class="section-note">These projects run directly in the browser from GitHub Pages.</p>
       </div>
 
-      <div class="category">
+      <div class="category category--right">
         <h3 class="category-title">APL\360</h3>
         <div class="demo-grid">
           <article class="demo-card">
@@ -506,7 +540,7 @@ READY.
         </div>
       </div>
 
-      <div class="category">
+      <div class="category category--left">
         <h3 class="category-title">IBM 1130</h3>
         <div class="demo-grid">
           <article class="demo-card">
@@ -521,7 +555,7 @@ READY.
         </div>
       </div>
 
-      <div class="category">
+      <div class="category category--right">
         <h3 class="category-title">RCA CDP1802</h3>
         <div class="demo-grid">
           <article class="demo-card">
@@ -546,7 +580,7 @@ READY.
         </div>
       </div>
 
-      <div class="category">
+      <div class="category category--left">
         <h3 class="category-title">IBM S/390</h3>
         <div class="demo-grid">
           <article class="demo-card">

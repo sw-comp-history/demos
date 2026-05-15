@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Software Computer History Demos</title>
+  <title>Software Wrighter's Computer History Demos</title>
   <meta name="description" content="Live demos and source links for the sw-comp-history repository family.">
   <style>
     :root {
@@ -17,6 +17,7 @@
       --blue: #284f7c;
       --gold: #b16f24;
       --shadow: 0 18px 48px rgba(24, 23, 20, 0.12);
+      --font-ocr: "OCR A Std", "OCR A Extended", "OCRB", "OCR-B", "Courier New", ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
     }
 
     * {
@@ -56,7 +57,7 @@
     .eyebrow {
       margin: 0 0 12px;
       color: var(--green);
-      font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+      font-family: var(--font-ocr);
       font-size: 0.84rem;
       font-weight: 700;
       letter-spacing: 0.08em;
@@ -66,9 +67,11 @@
     h1 {
       max-width: 820px;
       margin: 0;
-      font-size: clamp(3rem, 10vw, 8.5rem);
-      line-height: 0.9;
+      font-family: var(--font-ocr);
+      font-size: clamp(2.15rem, 6.7vw, 5.65rem);
+      line-height: 0.98;
       letter-spacing: 0;
+      text-transform: uppercase;
     }
 
     .lede {
@@ -396,7 +399,7 @@
     <header>
       <div>
         <p class="eyebrow">sw-comp-history / demos</p>
-        <h1>Software Computer History</h1>
+        <h1>Software Wrighter's Computer History</h1>
         <p class="lede">
           Browser demos and source projects for recreating historical computing systems:
           APL terminals, card-era batch processing, minicomputer consoles, mainframe assembly,
@@ -539,7 +542,7 @@ READY.
     </section>
 
     <footer>
-      <p>Software Computer History is maintained at <a href="https://github.com/sw-comp-history">github.com/sw-comp-history</a>.</p>
+      <p>Software Wrighter's Computer History is maintained at <a href="https://github.com/sw-comp-history">github.com/sw-comp-history</a>.</p>
     </footer>
   </main>
 </body>

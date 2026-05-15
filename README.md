@@ -5,7 +5,7 @@ Public catalog for the `sw-comp-history/*` repository family.
 Live page: <https://sw-comp-history.github.io/demos/>
 
 This repository keeps a small static GitHub Pages site in [`pages/`](pages/).
-It introduces the active Software Computer History projects and links to
+It introduces the active Software Wrighter's Computer History projects and links to
 their source repositories and live browser demos.
 
 ## Projects

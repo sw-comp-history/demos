@@ -1,0 +1,357 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>About | Software Wrighter's Computer History</title>
+  <meta name="description" content="About Software Wrighter's Computer History and the sw-comp-history demo catalog.">
+  <style>
+    :root {
+      --ink: #181714;
+      --muted: #5b5a52;
+      --paper: #f6f3ea;
+      --panel: #fffdf6;
+      --line: #d4cdbb;
+      --green: #145f4a;
+      --red: #8d2e28;
+      --blue: #284f7c;
+      --shadow: 0 18px 48px rgba(24, 23, 20, 0.12);
+      --font-ocr: "OCR A Std", "OCR A Extended", "OCRB", "OCR-B", "Courier New", ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      color: var(--ink);
+      background:
+        linear-gradient(rgba(255, 255, 255, 0.65), rgba(255, 255, 255, 0.65)),
+        repeating-linear-gradient(0deg, #ede7d8 0, #ede7d8 1px, transparent 1px, transparent 32px),
+        var(--paper);
+      font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      line-height: 1.6;
+    }
+
+    a {
+      color: inherit;
+    }
+
+    .shell {
+      max-width: 1040px;
+      margin: 0 auto;
+      padding: 28px 20px 52px;
+    }
+
+    .topbar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 18px;
+      padding: 6px 0 18px;
+      font-family: var(--font-ocr);
+    }
+
+    .site-mark {
+      color: var(--green);
+      font-size: 0.92rem;
+      font-weight: 800;
+      text-decoration: none;
+      text-transform: uppercase;
+    }
+
+    .top-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      justify-content: flex-end;
+    }
+
+    .top-links a {
+      border: 1px solid var(--line);
+      border-radius: 6px;
+      padding: 6px 10px;
+      background: rgba(255, 253, 246, 0.72);
+      color: var(--ink);
+      font-size: 0.82rem;
+      font-weight: 800;
+      text-decoration: none;
+      text-transform: uppercase;
+    }
+
+    header {
+      padding: 34px 0 22px;
+      border-bottom: 2px solid var(--ink);
+    }
+
+    .eyebrow {
+      margin: 0 0 10px;
+      color: var(--green);
+      font-family: var(--font-ocr);
+      font-size: 0.84rem;
+      font-weight: 800;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    h1 {
+      max-width: 780px;
+      margin: 0;
+      font-family: var(--font-ocr);
+      font-size: clamp(2rem, 5.6vw, 4.6rem);
+      line-height: 1;
+      letter-spacing: 0;
+      text-transform: uppercase;
+    }
+
+    .lede {
+      max-width: 760px;
+      margin: 18px 0 0;
+      color: var(--muted);
+      font-size: 1.12rem;
+    }
+
+    .layout {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) 300px;
+      gap: 22px;
+      margin-top: 26px;
+      align-items: start;
+    }
+
+    .content,
+    .resource-box,
+    .org-card {
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: var(--panel);
+      box-shadow: var(--shadow);
+    }
+
+    .content {
+      padding: 22px;
+    }
+
+    .content h2 {
+      margin: 30px 0 10px;
+      padding-bottom: 8px;
+      border-bottom: 1px solid var(--line);
+      color: var(--green);
+      font-family: var(--font-ocr);
+      font-size: 1.35rem;
+      letter-spacing: 0;
+      text-transform: uppercase;
+    }
+
+    .content h2:first-child {
+      margin-top: 0;
+    }
+
+    .content p,
+    .content li {
+      color: var(--muted);
+    }
+
+    .content strong {
+      color: var(--ink);
+    }
+
+    .resource-box {
+      position: sticky;
+      top: 20px;
+      padding: 16px;
+    }
+
+    .resource-box h2 {
+      margin: 0 0 12px;
+      color: var(--green);
+      font-family: var(--font-ocr);
+      font-size: 1.1rem;
+      text-transform: uppercase;
+    }
+
+    .resource-list {
+      display: grid;
+      gap: 10px;
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .resource-list a {
+      display: block;
+      border: 1px solid var(--line);
+      border-radius: 6px;
+      padding: 10px;
+      background: rgba(246, 243, 234, 0.7);
+      font-weight: 750;
+      text-decoration-color: rgba(24, 23, 20, 0.35);
+      text-underline-offset: 3px;
+    }
+
+    .topics {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 12px;
+      margin: 16px 0 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .topics li {
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      padding: 12px;
+      background: rgba(246, 243, 234, 0.72);
+    }
+
+    .org-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 12px;
+      margin-top: 14px;
+    }
+
+    .org-card {
+      padding: 14px;
+      box-shadow: none;
+    }
+
+    .org-card a {
+      color: var(--ink);
+      font-weight: 800;
+      text-decoration-color: rgba(24, 23, 20, 0.35);
+      text-underline-offset: 3px;
+    }
+
+    .org-card p {
+      margin: 6px 0 0;
+      color: var(--muted);
+      font-size: 0.95rem;
+    }
+
+    footer {
+      margin-top: 34px;
+      padding-top: 18px;
+      border-top: 1px solid var(--line);
+      color: var(--muted);
+      font-size: 0.95rem;
+    }
+
+    @media (max-width: 760px) {
+      .topbar {
+        align-items: flex-start;
+        flex-direction: column;
+      }
+
+      .top-links {
+        justify-content: flex-start;
+      }
+
+      .layout,
+      .topics,
+      .org-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .resource-box {
+        position: static;
+      }
+    }
+  </style>
+</head>
+<body>
+  <main class="shell">
+    <nav class="topbar" aria-label="Site navigation">
+      <a class="site-mark" href="/demos/">sw-comp-history</a>
+      <div class="top-links">
+        <a href="https://discord.com/invite/Ctzk5uHggZ">Discord</a>
+        <a href="https://software-wrighter-lab.github.io/">Blog</a>
+        <a href="/demos/about/">About</a>
+      </div>
+    </nav>
+
+    <header>
+      <p class="eyebrow">about / sw-comp-history</p>
+      <h1>About Software Wrighter's Computer History</h1>
+      <p class="lede">
+        A project family for rebuilding, explaining, and running historically important
+        computing systems in modern browsers and Rust toolchains.
+      </p>
+    </header>
+
+    <div class="layout">
+      <article class="content">
+        <h2>Project</h2>
+        <p>
+          Software Wrighter's Computer History collects live demos, emulators, assemblers,
+          and language experiments around machines and workflows that shaped programming:
+          APL terminals, IBM 1130 minicomputers, RCA CDP1802 microprocessors, IBM S/390
+          mainframe assembly, and card-era batch processing.
+        </p>
+        <p>
+          The goal is practical preservation. Each demo should be something you can open,
+          run, inspect, and connect back to source code rather than a static screenshot or
+          historical note.
+        </p>
+
+        <h2>Author</h2>
+        <p>
+          The work is maintained by Mike Wright as part of the broader Software Wrighter
+          Lab set of projects. The lab blog covers AI coding agents, systems programming,
+          language tooling, practical machine learning, and retrocomputing work as it is
+          built.
+        </p>
+
+        <h2>Topics</h2>
+        <ul class="topics">
+          <li><strong>APL\360</strong><br>Terminal-era array programming demos and historical language examples.</li>
+          <li><strong>IBM 1130</strong><br>Minicomputer emulation, assembly tooling, console interfaces, and FORTH history.</li>
+          <li><strong>RCA CDP1802</strong><br>COSMAC 1802 instruction execution, assembly, and period-style I/O devices.</li>
+          <li><strong>IBM S/390</strong><br>Mainframe assembly demos and batch-processing workflows.</li>
+        </ul>
+
+        <h2>GitHub Organizations</h2>
+        <p>
+          Computer-history repositories live under <code>sw-comp-history</code>; related systems and
+          language projects are split across focused Software Wrighter organizations.
+        </p>
+        <div class="org-grid">
+          <div class="org-card">
+            <a href="https://github.com/orgs/sw-comp-history/repositories">sw-comp-history</a>
+            <p>Computing history, retrocomputing demos, emulators, and historical toolchains.</p>
+          </div>
+          <div class="org-card">
+            <a href="https://github.com/orgs/sw-embed/repositories">sw-embed</a>
+            <p>Embedded stacks, compilers, and browser demos around COR24 and related targets.</p>
+          </div>
+          <div class="org-card">
+            <a href="https://github.com/orgs/sw-langtools/repositories">sw-langtools</a>
+            <p>Programming language tooling, parsers, compilers, interpreters, and experiments.</p>
+          </div>
+          <div class="org-card">
+            <a href="https://github.com/orgs/sw-vibe-coding/repositories">sw-vibe-coding</a>
+            <p>AI-agent and workflow projects used to build and maintain the larger ecosystem.</p>
+          </div>
+        </div>
+      </article>
+
+      <aside class="resource-box" aria-labelledby="connect-heading">
+        <h2 id="connect-heading">Connect</h2>
+        <ul class="resource-list">
+          <li><a href="/demos/">Live demo catalog</a></li>
+          <li><a href="https://software-wrighter-lab.github.io/">Software Wrighter Lab Blog</a></li>
+          <li><a href="https://github.com/sw-comp-history">sw-comp-history on GitHub</a></li>
+          <li><a href="https://discord.com/invite/Ctzk5uHggZ">SW Lab Discord</a></li>
+          <li><a href="https://www.youtube.com/@SoftwareWrighter">YouTube @SoftwareWrighter</a></li>
+        </ul>
+      </aside>
+    </div>
+
+    <footer>
+      <p>Software Wrighter's Computer History is maintained at <a href="https://github.com/sw-comp-history">github.com/sw-comp-history</a>.</p>
+    </footer>
+  </main>
+</body>
+</html>

@@ -45,6 +45,42 @@
       padding: 28px 20px 52px;
     }
 
+    .topbar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 18px;
+      padding: 6px 0 18px;
+      font-family: var(--font-ocr);
+    }
+
+    .site-mark {
+      color: var(--green);
+      font-size: 0.92rem;
+      font-weight: 800;
+      text-decoration: none;
+      text-transform: uppercase;
+    }
+
+    .top-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      justify-content: flex-end;
+    }
+
+    .top-links a {
+      border: 1px solid var(--line);
+      border-radius: 6px;
+      padding: 6px 10px;
+      background: rgba(255, 253, 246, 0.72);
+      color: var(--ink);
+      font-size: 0.82rem;
+      font-weight: 800;
+      text-decoration: none;
+      text-transform: uppercase;
+    }
+
     header {
       display: grid;
       grid-template-columns: minmax(0, 1.2fr) minmax(300px, 0.8fr);
@@ -391,11 +427,29 @@
       .section-head {
         display: block;
       }
+
+      .topbar {
+        align-items: flex-start;
+        flex-direction: column;
+      }
+
+      .top-links {
+        justify-content: flex-start;
+      }
     }
   </style>
 </head>
 <body>
   <main class="shell">
+    <nav class="topbar" aria-label="Site navigation">
+      <a class="site-mark" href="/demos/">sw-comp-history</a>
+      <div class="top-links">
+        <a href="https://discord.com/invite/Ctzk5uHggZ">Discord</a>
+        <a href="https://software-wrighter-lab.github.io/">Blog</a>
+        <a href="/demos/about/">About</a>
+      </div>
+    </nav>
+
     <header>
       <div>
         <p class="eyebrow">sw-comp-history / demos</p>
